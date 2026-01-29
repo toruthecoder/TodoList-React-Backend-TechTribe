@@ -24,9 +24,9 @@ app.use(express.json())
 
 app.use('/', UserAuth)
 
-app.get("/", (req, res) => {
-    res.send("API is running 🚀");
-});
+// app.get("/", (req, res) => {
+//     res.send("API is running 🚀");
+// });
 app.use('/api/todos', todoRoutes)
 // connectDB().then(() => {
 //     app.listen(PORT, () => { console.log(`Server started on port : `, PORT) })
