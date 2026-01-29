@@ -9,7 +9,7 @@
  ],
  "routes": [
   {
-   "src": "/todos",
+   "src": "/(.*)",
    "dest": "src/server.js"
   }
  ]
