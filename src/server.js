@@ -11,7 +11,9 @@ dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3002;
+
 connectDB()
+
 app.use(cors({
     // origin: 'http://localhost:5173',
     origin: process.env.FRONTEND_URL,
@@ -21,6 +23,7 @@ app.use(cors({
 
 app.use(cookieParser())
 app.use(express.json())
+
 // app.use(rateLimiter)
 
 app.use('/', UserAuth)
@@ -30,7 +33,9 @@ app.use('/', UserAuth)
 // });
 
 app.use('/api/todos', todoRoutes)
+
 // connectDB().then(() => {
 //     app.listen(PORT, () => { console.log(`Server started on port : `, PORT) })
 // })
+
 export default app;
