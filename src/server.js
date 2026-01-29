@@ -15,8 +15,8 @@ const PORT = process.env.PORT || 3002;
 connectDB()
 
 app.use(cors({
-    // origin: 'http://localhost:5173',
-    origin: process.env.FRONTEND_URL,
+    origin: 'http://localhost:5173',
+    // origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }))
@@ -34,8 +34,8 @@ app.use('/', UserAuth)
 
 app.use('/api/todos', todoRoutes)
 
-// connectDB().then(() => {
-//     app.listen(PORT, () => { console.log(`Server started on port : `, PORT) })
-// })
+connectDB().then(() => {
+    app.listen(PORT, () => { console.log(`Server started on port : `, PORT) })
+})
 
-export default app;
+// export default app;

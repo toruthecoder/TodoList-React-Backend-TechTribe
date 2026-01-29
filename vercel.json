@@ -9,7 +9,7 @@
  ],
  "routes": [
   {
-   "src": "/(.*)",
+   "src": "https://frontend-tau-three-xnzrf3qdpq.vercel.app",
    "dest": "src/server.js"
   }
  ]
