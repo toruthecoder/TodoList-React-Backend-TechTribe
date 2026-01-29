@@ -11,7 +11,7 @@ dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3002;
-// connectDB()
+connectDB()
 app.use(cors({
     origin: 'http://localhost:5173',
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -25,7 +25,7 @@ app.use(express.json())
 app.use('/', UserAuth)
 
 app.use('/api/todos', todoRoutes)
-connectDB().then(() => {
-    app.listen(PORT, () => { console.log(`Server started on port : `, PORT) })
-})
-// module.exports = app;
+// connectDB().then(() => {
+//     app.listen(PORT, () => { console.log(`Server started on port : `, PORT) })
+// })
+module.exports = app;
