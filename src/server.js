@@ -1,7 +1,6 @@
 import express from 'express'
 import todoRoutes from './routes/todoRoutes.js'
 import { connectDB } from './config/db.js'
-// import rateLimiter from './middleware/rateLimiter.js'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -24,13 +23,11 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 
-// app.use(rateLimiter)
-
 app.use('/', UserAuth)
 
-// app.get("/", (req, res) => {
-//     res.send("API is running 🚀");
-// });
+app.get("/", (req, res) => {
+    res.send("API is running 🚀");
+});
 
 app.use('/api/todos', todoRoutes)
 
