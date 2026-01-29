@@ -28,4 +28,4 @@ app.use('/api/todos', todoRoutes)
 // connectDB().then(() => {
 //     app.listen(PORT, () => { console.log(`Server started on port : `, PORT) })
 // })
-module.exports = app;
+export default app;
