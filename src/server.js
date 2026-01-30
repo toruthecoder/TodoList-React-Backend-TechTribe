@@ -9,7 +9,7 @@ import UserAuth from './routes/authRoute.js'
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 3002;
+// const PORT = process.env.PORT || 3002;
 
 // app.use(async (req, res, next) => {
 //     try {

@@ -2,7 +2,7 @@ import User from '../model/user.js'
 import createSecretToken from '../config/secretToken.js'
 import bcrypt from 'bcryptjs'
 
-export const Signup = async (req, res, next) => {
+export const Signup = async (req, res) => {
     try {
         const { email, username, password } = req.body;
         const existingUser = await User.findOne({ email });
@@ -23,7 +23,7 @@ export const Signup = async (req, res, next) => {
     }
 }
 
-export const Login = async (req, res, next) => {
+export const Login = async (req, res) => {
     try {
         const { email, password } = req.body;
         if (!email || !password) return res.status(404).json({ message: 'All Fields are Required.' })
