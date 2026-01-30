@@ -13,7 +13,9 @@ export const Signup = async (req, res, next) => {
         const token = createSecretToken(user._id)
         res.cookie("token", token, {
             withCredentials: true,
-            httpOnly: false,
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
         })
         res.status(201).json({ message: "User SignUp Successfully.", success: true, user });
         next()
@@ -31,7 +33,12 @@ export const Login = async (req, res, next) => {
         const auth = await bcrypt.compare(password, user.password)
         if (!auth) return res.status(404).json({ message: 'Incorect Password or Email 1' })
         const token = createSecretToken(user._id);
-        res.cookie("token", token, { withCredentials: true, httpOnly: false })
+        res.cookie("token", token, {
+            withCredentials: true,
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
+        })
         res.status(201).json({ message: "User Logged In Successfully.", success: true })
         next()
     } catch (error) {
