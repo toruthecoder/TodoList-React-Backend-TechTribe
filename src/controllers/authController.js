@@ -18,7 +18,6 @@ export const Signup = async (req, res, next) => {
             sameSite: "None",
         })
         res.status(201).json({ message: "User SignUp Successfully.", success: true, user });
-        next()
     } catch (error) {
         console.error(error)
     }
@@ -40,7 +39,6 @@ export const Login = async (req, res, next) => {
             sameSite: "None",
         })
         res.status(201).json({ message: "User Logged In Successfully.", success: true })
-        next()
     } catch (error) {
         console.error(error)
     }
