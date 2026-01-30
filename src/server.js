@@ -25,7 +25,7 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 
-app.use('/', UserAuth)
+app.use('/api/auth', UserAuth)
 
 app.get("/", (req, res) => {
     res.send("API is running 🚀");
