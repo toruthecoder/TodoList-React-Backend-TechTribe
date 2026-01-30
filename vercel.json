@@ -9,6 +9,9 @@
  ],
 "routes": [
   { "src": "/api/(.*)", "dest": "/src/server.js" },
+  { "src": "/login(.*)", "dest": "/src/server.js" },
+  { "src": "/signup(.*)", "dest": "/src/server.js" },
+  { "src": "/verify(.*)", "dest": "/src/server.js" },
   { "src": "/(.*)", "dest": "src/server.js" },
   { "src": "/", "dest": "src/server.js" }
 ]
