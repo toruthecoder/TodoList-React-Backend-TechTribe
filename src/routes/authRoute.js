@@ -10,7 +10,11 @@ router.post("/verify", userVerification, (req, res) => {
         status: true,
         user: req.user.username,
         email: req.user.email,
+        // httpOnly: true,
+        // secure: true,
+        // sameSite: "None",
     });
+    // res.json({ success: true })
 });
 
 export default router;

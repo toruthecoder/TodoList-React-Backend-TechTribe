@@ -11,27 +11,14 @@ dotenv.config()
 const app = express()
 // const PORT = process.env.PORT || 3002;
 
-// app.use(async (req, res, next) => {
-//     try {
-//         await connectDB();
-//         next();
-//     } catch (err) {
-//         res.status(500).json({ message: "DB connection failed" });
-//     }
-// });
-
 connectDB()
 
-console.log(process.env.FRONTEND_URL)
-
 app.use(cors({
-    // origin: 'http://localhost:5173',
     origin: [process.env.FRONTEND_URL, 'http://localhost:5173'],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }))
 
-// app.use(cors({ origin: "*", }))
 app.use(cookieParser())
 app.use(express.json())
 
