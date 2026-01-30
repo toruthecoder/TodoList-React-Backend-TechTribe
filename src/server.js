@@ -13,14 +13,14 @@ const PORT = process.env.PORT || 3002;
 
 connectDB()
 
-// app.use(cors({
-//     // origin: 'http://localhost:5173',
-//     origin: process.env.FRONTEND_URL,
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-// }))
+app.use(cors({
+    // origin: 'http://localhost:5173',
+    origin: process.env.FRONTEND_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+}))
 
-app.use(cors({ origin: "*", }))
+// app.use(cors({ origin: "*", }))
 app.use(cookieParser())
 app.use(express.json())
 
