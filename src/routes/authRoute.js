@@ -3,9 +3,9 @@ import { userVerification } from '../middleware/authMiddleware.js'
 import express from 'express'
 const router = express.Router()
 
-router.post('signup', Signup)
-router.post('login', Login)
-router.post("verify", userVerification, (req, res) => {
+router.post('/signup', Signup)
+router.post('/login', Login)
+router.post("/verify", userVerification, (req, res) => {
     res.json({
         status: true,
         user: req.user.username,
