@@ -13,9 +13,9 @@ export const Signup = async (req, res) => {
         const token = createSecretToken(user._id)
         res.cookie("token", token, {
             withCredentials: true,
-            httpOnly: false,
-            // secure: true,
-            // sameSite: "None",
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
         })
         res.status(201).json({ message: "User SignUp Successfully.", success: true, user });
     } catch (error) {
@@ -43,3 +43,21 @@ export const Login = async (req, res) => {
         console.error(error)
     }
 }
+
+export const Logout = async (req, res) => {
+    try {
+        res.cookie("token", "", {
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
+        });
+
+        res.status(200).json({
+            message: "User Logged Out Successfully.",
+            success: true,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Logout failed" });
+    }
+};

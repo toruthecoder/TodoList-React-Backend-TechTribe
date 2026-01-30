@@ -1,4 +1,4 @@
-import { Signup, Login } from '../controllers/authController.js'
+import { Signup, Login, Logout } from '../controllers/authController.js'
 import { userVerification } from '../middleware/authMiddleware.js'
 import express from 'express'
 const router = express.Router()
@@ -12,5 +12,6 @@ router.post("/verify", userVerification, (req, res) => {
         email: req.user.email,
     });
 });
+router.post("/logout", Logout);
 
 export default router;
