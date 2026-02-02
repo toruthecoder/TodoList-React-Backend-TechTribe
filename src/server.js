@@ -24,7 +24,7 @@ app.use(express.json())
 
 app.use('/api/auth', UserAuth)
 
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
     res.send("API is running 🚀");
 });
 
