@@ -17,7 +17,14 @@ export const Signup = async (req, res) => {
             secure: true,
             sameSite: "None",
         })
-        res.status(201).json({ message: "User SignUp Successfully.", success: true, user });
+        res.status(201).json({
+            message: "User SignUp Successfully.", success: true,
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+            }
+        });
     } catch (error) {
         console.error(error)
     }
@@ -38,13 +45,20 @@ export const Login = async (req, res) => {
             secure: true,
             sameSite: "None",
         })
-        res.status(201).json({ message: "User Logged In Successfully.", success: true })
+        res.status(201).json({
+            message: "User Logged In Successfully.", success: true,
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+            }
+        })
     } catch (error) {
         console.error(error)
     }
 }
 
-export const Logout = async (req, res) => {
+export const Logout = async (_, res) => {
     try {
         res.cookie("token", "", {
             httpOnly: true,

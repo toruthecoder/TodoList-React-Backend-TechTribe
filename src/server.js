@@ -9,7 +9,7 @@ import UserAuth from './routes/authRoute.js'
 dotenv.config()
 
 const app = express()
-// const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3002;
 
 connectDB()
 
@@ -24,9 +24,9 @@ app.use(express.json())
 
 app.use('/api/auth', UserAuth)
 
-// app.get("/", (req, res) => {
-//     res.send("API is running 🚀");
-// });
+app.get("/", (req, res) => {
+    res.send("API is running 🚀");
+});
 
 app.use('/api/todos', todoRoutes)
 
